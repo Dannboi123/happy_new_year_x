@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy New Year</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+:root{--bg-dark:#12050c;--bg-wine:#2b0f1e;--rose-soft:#ffd6e8}
+body{margin:0;font-family:'Inter',sans-serif;background:radial-gradient(circle at top,var(--bg-wine),var(--bg-dark) 70%);color:var(--rose-soft)}
+.scroll-scene{min-height:100vh;padding:10vh 8vw;display:flex;flex-direction:column;justify-content:center;gap:18px;opacity:0;transform:translateY(24px);transition:1.4s}
+.scroll-scene.visible{opacity:1;transform:none}
+img{max-width:720px;border-radius:18px;filter:blur(6px) brightness(.75);opacity:0;transition:1.6s}
+.scroll-scene.visible img{filter:none;opacity:1}
+.final{text-align:center}
+.final-message{font-size:1.5rem;margin-top:30px}
+</style>
+</head>
+<body>
+<audio autoplay loop>
+<source src="Standard recording 2.mp3" type="audio/mpeg">
+</audio>
+<div id="scroll-story">
+<section class="scroll-scene">
+<p>Before years had names.</p>
+<p>Before we knew what staying meant.</p>
+<img src="kid_earliest.jpg">
+</section>
+<section class="scroll-scene">
+<p>Time moved quietly.</p>
+<p>We did too.</p>
+<img src="kid_later.jpg">
+</section>
+<section class="scroll-scene">
+<p>Somewhere along the way…</p>
+<p>we didn’t drift.</p>
+<img src="teen.jpg">
+</section>
+<section class="scroll-scene">
+<p>Different versions of us.</p>
+<p>The same familiarity.</p>
+<img src="now.jpg">
+</section>
+<section class="scroll-scene final">
+<p>I don’t know where this goes.</p>
+<p>And I don’t need to.</p>
+<p>I just know I’d like to find out…</p>
+<p>with you.</p>
+<div class="final-message">Happy New Year.</div>
+</section>
+</div>
+<script>
+const obs=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('visible')),{threshold:.6});
+document.querySelectorAll('.scroll-scene').forEach(s=>obs.observe(s));
+</script>
+</body></html>
